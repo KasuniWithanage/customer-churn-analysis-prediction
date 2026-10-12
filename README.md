@@ -445,5 +445,128 @@ The repository also includes:
 
 **Note:** The saved machine-learning model was created using the package versions listed in `requirements.txt`. For reliable model loading, use a compatible Python environment with those versions.
 
+## Business Recommendations
 
+Based on the exploratory data analysis, SQL analysis, and machine-learning results, the following recommendations could help the telecommunications company investigate customer churn and develop retention strategies.
 
+### 1. Prioritize Month-to-Month Customers
+
+**Finding:** Customers with month-to-month contracts had a churn rate of 42.71%, compared with 11.27% for one-year contracts and 2.83% for two-year contracts.
+
+**Recommendation:** Investigate whether flexible contract renewal incentives, loyalty benefits, or longer-term contract offers could improve customer retention.
+
+**Business Value:** Identifying customers with higher observed churn rates could help the company prioritize retention campaigns.
+
+### 2. Investigate Fiber Optic Customer Churn
+
+**Finding:** Fiber optic customers had a churn rate of 41.89%, compared with 18.96% for DSL customers.
+
+**Recommendation:** Investigate customer satisfaction, pricing, service quality, and support experiences among fiber optic customers.
+
+**Business Value:** Understanding the reasons for churn in this segment could help identify opportunities to improve customer experience.
+
+### 3. Evaluate Technical Support Services
+
+**Finding:** Customers without technical support had a churn rate of 41.64%, compared with 15.17% among customers with technical support.
+
+**Recommendation:** Evaluate proactive technical assistance, improved support accessibility, and targeted service follow-ups.
+
+**Business Value:** Better support experiences may help address customer problems before they lead to cancellations.
+
+### 4. Investigate Electronic Check Payments
+
+**Finding:** Customers using electronic check payments had a churn rate of 45.29%, higher than customers using other payment methods.
+
+**Recommendation:** Investigate whether payment convenience, billing experiences, or other customer characteristics explain this association.
+
+**Business Value:** The findings may help identify opportunities to improve the payment experience and customer engagement.
+
+### 5. Focus on New Customers
+
+**Finding:** Customers with 0–12 months of tenure had a churn rate of 47.44%, compared with 9.51% for customers with 49–72 months of tenure.
+
+**Recommendation:** Consider improving customer onboarding, providing early support, and evaluating engagement initiatives during the first year.
+
+**Business Value:** Early customer engagement could be an area for further retention experiments.
+
+### 6. Use Machine Learning to Prioritize Retention Investigations
+
+**Finding:** The tuned Random Forest model achieved a recall of 79.95% and ROC-AUC of 0.8439 on the held-out test set.
+
+The model's test-set predictions were classified into:
+
+| Risk Category | Customers | Average Predicted Churn Probability |
+|---|---:|---:|
+| High Risk | 454 | 75.28% |
+| Medium Risk | 354 | 45.33% |
+| Low Risk | 601 | 13.03% |
+
+**Recommendation:** Explore using churn risk predictions to prioritize customers for further review and carefully designed retention campaigns.
+
+**Business Value:** Predictive modeling could help allocate retention resources more efficiently, subject to validation of model performance and intervention effectiveness.
+
+These risk classifications cover only the 1,409 customers in the held-out test set.
+
+---
+
+## Project Limitations
+
+Although this project provides useful insights into customer churn, several limitations should be considered.
+
+### 1. Dataset Limitations
+
+The project uses the publicly available IBM Telco Customer Churn sample dataset containing 7,043 customer records.
+
+The findings may not represent the behavior of customers at a specific real-world telecommunications company or in another market.
+
+### 2. Correlation Does Not Imply Causation
+
+The analysis identifies relationships between customer characteristics and churn.
+
+For example, customers with month-to-month contracts have higher observed churn rates, but this does not prove that month-to-month contracts cause customers to leave.
+
+Further investigation or controlled experiments would be needed to evaluate causal effects.
+
+### 3. Model Prediction Errors
+
+Machine-learning models are not perfectly accurate.
+
+The Logistic Regression model achieved 80.70% accuracy, while the tuned Random Forest model achieved 75.16% accuracy and 79.95% recall.
+
+Both models can produce false positives and false negatives. The appropriate model depends on the business costs of these errors.
+
+### 4. Limited Model Generalization
+
+Model performance was evaluated using a stratified training and test split of the available dataset.
+
+Additional validation using new customer data would be needed before applying the models in a real business environment.
+
+### 5. Limited Prediction Coverage in the Dashboard
+
+The Power BI dashboard contains historical data for all 7,043 customers.
+
+However, the machine-learning risk visualizations use predictions for only the 1,409 held-out test customers.
+
+Therefore, the displayed risk distribution should not be interpreted as a prediction for the entire customer population.
+
+### 6. Retention Strategies Were Not Tested
+
+The business recommendations are based on observed churn patterns and model predictions.
+
+The project did not evaluate actual retention campaigns, intervention costs, or their impact on customer churn.
+
+Future work could involve testing retention strategies and measuring their effectiveness.
+
+---
+
+## Future Improvements
+
+Potential improvements include:
+
+- Evaluating additional machine-learning algorithms.
+- Applying cross-validation and further hyperparameter optimization.
+- Assessing model calibration and classification thresholds.
+- Validating models using newer customer data.
+- Investigating model explainability and feature importance.
+- Developing a prediction interface for new customers.
+- Measuring the business impact of retention campaigns.
