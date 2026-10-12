@@ -357,4 +357,93 @@ The historical churn findings are descriptive, while the predicted risk categori
 
 ![Customer Churn Analysis Dashboard](screenshots/customer_churn_dashboard.png)
 
+## Installation and Setup
+
+### Prerequisites
+
+To explore or reproduce this project, you will need:
+
+- Python 3.14 (the version used during development)
+- VS Code or Jupyter Notebook
+- MySQL Server and MySQL Workbench (for SQL analysis)
+- Power BI Desktop (for dashboard exploration)
+
+### 1. Clone the Repository
+
+Open a terminal and run:
+
+```bash
+git clone https://github.com/KasuniWithanage/customer-churn-analysis-prediction.git
+cd customer-churn-analysis-prediction
+```
+
+### 2. Create a Virtual Environment
+
+Create a Python virtual environment:
+
+```bash
+python -m venv churn_env
+```
+
+Activate it on Windows PowerShell:
+
+```powershell
+.\churn_env\Scripts\Activate.ps1
+```
+
+### 3. Install Python Dependencies
+
+Install the required Python packages:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+### 4. Run the Jupyter Notebook
+
+Open the following notebook in VS Code or Jupyter:
+
+`notebooks/churn_analysis.ipynb`
+
+Select the Python environment where you installed the dependencies.
+
+Run the notebook cells in order to explore the data analysis and machine-learning workflow.
+
+### 5. Explore the SQL Analysis
+
+The SQL analysis is available in:
+
+`sql/churn_analysis.sql`
+
+To reproduce it:
+
+1. Install and open MySQL Server and MySQL Workbench.
+2. Create a database named `telco_churn_db`.
+3. Import `data/telco_churn_cleaned.csv` into a table named `telco_churn_cleaned`.
+4. Open `sql/churn_analysis.sql` in MySQL Workbench.
+5. Execute the queries to explore customer churn patterns.
+
+### 6. Explore the Power BI Dashboard
+
+Open the following file in Power BI Desktop:
+
+`powerbi/Customer_Churn_Dashboard.pbix`
+
+If Power BI cannot locate the original dataset, reconnect the data source to:
+
+`powerbi/telco_churn_powerbi.csv`
+
+The dashboard includes historical churn analysis, customer segmentation filters, and machine-learning risk visualizations.
+
+### 7. Project Outputs
+
+The repository also includes:
+
+- `models/churn_prediction_pipeline.joblib` — Saved machine-learning pipeline.
+- `outputs/churn_prediction_results.csv` — Customer churn prediction results.
+- `screenshots/customer_churn_dashboard.png` — Dashboard preview.
+
+**Note:** The saved machine-learning model was created using the package versions listed in `requirements.txt`. For reliable model loading, use a compatible Python environment with those versions.
+
+
 
